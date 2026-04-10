@@ -14,7 +14,7 @@ universo = pd.read_excel(ruta, sheet_name="universo")
 territorio = pd.read_excel(ruta, sheet_name="territorio")
 
 # cargar geojson
-with open("../data/DPTO_POLITICO.geojson", encoding="utf-8") as f:
+with open("../data/DPTO_POLITICO.json", encoding="utf-8") as f:
     geojson = json.load(f)
 
 # ========================
