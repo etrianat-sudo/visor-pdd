@@ -106,13 +106,12 @@ st.dataframe(tabla, use_container_width=True)
 
 
 
-rutaB = get_path("assets", "info1.png")
 
 st.markdown("---")
 
 st.markdown("### 🧾 Desaparición según el ciclo de vida")
 
 st.image(
-    rutaB,
+    "assets/info1.png",
     use_container_width=True
 )
