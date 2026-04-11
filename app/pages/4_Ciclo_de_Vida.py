@@ -4,7 +4,14 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 
-ruta = "data/data_universo_pdd.xlsx"
+import os
+
+def get_path(*paths):
+    base = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    return os.path.join(base, *paths)
+
+ruta = get_path("data", "data_universo_pdd.xlsx")
+
 base = pd.read_excel(ruta, sheet_name="base_pdd")
 
 # ========================
