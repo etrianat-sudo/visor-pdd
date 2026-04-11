@@ -112,9 +112,9 @@ import os
 
 rutaB = get_path("assets", "Info1.jpg")
 
-st.write("Ruta imagen:", rutaB)
-st.write("Existe:", os.path.exists(rutaB))
+#st.write("Ruta imagen:", rutaB)
+#st.write("Existe:", os.path.exists(rutaB))
 
 img = Image.open(rutaB)
 
-st.image(img, use_container_width=True)
+#st.image(img, use_container_width=True)
