@@ -107,11 +107,14 @@ st.dataframe(tabla, use_container_width=True)
 
 
 
-st.markdown("---")
+from PIL import Image
+import os
 
-st.markdown("### 🧾 Desaparición según el ciclo de vida")
+rutaB = get_path("assets", "info1.jpg")
 
-st.image(
-    "assets/info1.jpg",
-    use_container_width=True
-)
+st.write("Ruta imagen:", rutaB)
+st.write("Existe:", os.path.exists(rutaB))
+
+img = Image.open(rutaB)
+
+st.image(img, use_container_width=True)
