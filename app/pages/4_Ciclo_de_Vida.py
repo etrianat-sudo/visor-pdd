@@ -112,6 +112,6 @@ st.markdown("---")
 st.markdown("### 🧾 Desaparición según el ciclo de vida")
 
 st.image(
-    "assets/info1.png",
+    "assets/info1.jpg",
     use_container_width=True
 )
