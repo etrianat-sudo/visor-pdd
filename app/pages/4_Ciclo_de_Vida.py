@@ -110,7 +110,7 @@ st.dataframe(tabla, use_container_width=True)
 from PIL import Image
 import os
 
-rutaB = get_path("assets", "info1.jpg")
+rutaB = get_path("assets", "Info1.jpg")
 
 st.write("Ruta imagen:", rutaB)
 st.write("Existe:", os.path.exists(rutaB))
