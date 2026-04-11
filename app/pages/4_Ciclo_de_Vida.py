@@ -117,4 +117,4 @@ rutaB = get_path("assets", "Info1.jpg")
 
 img = Image.open(rutaB)
 
-#st.image(img, use_container_width=True)
+st.image(img, use_container_width=True)
