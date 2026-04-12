@@ -28,7 +28,7 @@ base = base[base["sexo"] == "MUJER"]
 # ========================
 # GRÁFICA
 # ========================
-st.title("## 🧬 Ciclo de vida de las mujeres desaparecidas")
+st.title("🧬 Ciclo de vida de las mujeres desaparecidas")
 st.markdown("""
 <small style='color: gray;'>
 Distribución de la edad al momento de la desaparición, en el contexto del conflicto armado en Colombia.
@@ -141,7 +141,7 @@ with col1:
     st.dataframe(tabla)
 
 with col2:
-    st.image(img, width=350)
+    st.image(img, width=450)
 
 st.markdown("""
 ### 📊 Clave de lectura
