@@ -67,19 +67,60 @@ for feature in geojson["features"]:
 #st.write("Muestra GeoJSON:", [f["properties"]["DPTO_CNMBR"] for f in geojson["features"][:32]])
 
 
+
+######  Titilo #########
+st.markdown("""
+<h1 style='text-align: left; color: black;'>
+🌍 Panorama General de la Desaparición de Mujeres
+</h1>
+<p style='font-size:18px; color:gray;'>
+Una lectura territorial y cuantitativa del fenómeno en Colombia
+</p>
+""", unsafe_allow_html=True)
+
 # ========================
 # KPIs
 # ========================
-st.title("🌍 Universo de Personas Desaparecidas")
 
 col1, col2, col3 = st.columns(3)
 
-col1.metric("Total PDD", f"{int(universo['total_pdd'][0]):,}")
-col2.metric("Total Mujeres", f"{int(universo['mujeres'][0]):,}")
-col3.metric("% Mujeres", f"{universo['por_mujeres'][0]*100:.2f}%")
+col1.markdown(f"""
+<div style='background-color:#f3e5f5; padding:20px; border-radius:10px'>
+<h3>Total de Personas Dadas por Desaparecidas - PDD</h3>
+<h1>{int(universo['total_pdd'][0]):,}</h1>
+</div>
+""", unsafe_allow_html=True)
 
+col2.markdown(f"""
+<div style='background-color:#ede7f6; padding:20px; border-radius:10px'>
+<h3>Mujeres</h3>
+<h1>{int(universo['mujeres'][0]):,}</h1>
+</div>
+""", unsafe_allow_html=True)
+
+col3.markdown(f"""
+<div style='background-color:#e1bee7; padding:20px; border-radius:10px'>
+<h3>% Mujeres</h3>
+<h1>{universo['por_mujeres'][0]*100:.1f}%</h1>
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<small style='color: gray;'>
+Personas dadas por desaparecidas en el contexto y razón del conflicto armado en Colombia, 
+antes del 1 de diciembre de 2016.
+</small>
+""", unsafe_allow_html=True)
+
+st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown("---")
+st.markdown("### 📍 Distribución territorial de las desapariciones")
 
+st.markdown("""
+<small style='color: gray;'>
+Interactúe con el mapa desplazando el cursor sobre los departamentos para visualizar el detalle de la información.
+</small>
+""", unsafe_allow_html=True)
 
 
 # ========================
@@ -123,7 +164,7 @@ fig_map.update_geos(
 )
 
 fig_map.update_layout(
-    height=700,
+    height=600,
     margin={"r":0,"t":50,"l":0,"b":0}
 )
 

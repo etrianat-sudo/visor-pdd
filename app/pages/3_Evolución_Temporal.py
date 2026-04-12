@@ -18,85 +18,23 @@ temporal = temporal.sort_values("anio_desapa")
 # ========================
 # TÍTULO
 # ========================
-st.title("📈 Evolución de la desaparición de mujeres")
+st.title("📈 Análisis de la evolución temporal de desaparicion de Mujeres")
 
 st.markdown("""
-Análisis de la evolución temporal de las desapariciones de mujeres en Colombia, evidenciando patrones históricos y momentos críticos del conflicto armado.
+Patrones y momentos críticos: Análisis temporal de las desapariciones de mujeres en el marco del conflicto armado en Colombia.
 """)
 
 # ========================
-# GRÁFICA 1: ANUAL
+# GRÁFICA 1:  acomulado ACUMULADO
 # ========================
-st.subheader("Registros anuales")
+st.subheader("Impacto del conflicto armado: Acumulado histórico de desapariciones de mujeres por año de ocurrencia.")
 
-st.subheader("Registros anuales: Total PDD vs Mujeres")
+st.markdown("""
+<small style='color: gray;'>
+Interactúe con la gráfica desplazando el cursor sobre la curva para visualizar el detalle de la información.
+</small>
+""", unsafe_allow_html=True)
 
-fig_anual = px.line(
-    temporal,
-    x="anio_desapa",
-    y=["total_pdd", "total_mujeres"],
-    markers=True
-)
-
-# colores personalizados
-fig_anual.update_traces(
-    selector=dict(name="total_pdd"),
-    line=dict(color="firebrick", width=3),
-)
-
-fig_anual.update_traces(
-    selector=dict(name="total_mujeres"),
-    line=dict(color="darkblue", width=3),
-)
-
-# hover personalizado
-fig_anual.update_traces(
-    hovertemplate=
-    "<b>Año:</b> %{x}<br>" +
-    "<b>Total de PDD:</b> %{y:,}<extra></extra>"
-)
-
-fig_anual.update_layout(
-    height=450,
-    xaxis_title="Año",
-    yaxis_title="Número de casos",
-    legend_title="Serie"
-)
-
-st.plotly_chart(fig_anual, use_container_width=True)
-
-# ========================
-# GRÁFICA 1: ANUAL
-# ========================
-st.subheader("Registros anuales solo Mujeres")
-
-fig_anual = px.line(
-    temporal,
-    x="anio_desapa",
-    y="total_mujeres",
-    markers=True
-)
-
-fig_anual.update_traces(
-    line=dict(color="darkblue", width=3),
-    hovertemplate=
-    "<b>Año:</b> %{x}<br>" +
-    "<b>Casos:</b> %{y:,}<extra></extra>"
-)
-
-fig_anual.update_layout(
-    height=400,
-    xaxis_title="Año",
-    yaxis_title="Número de casos"
-)
-
-st.plotly_chart(fig_anual, use_container_width=True)
-
-
-# ========================
-# GRÁFICA 2: ACUMULADO
-# ========================
-st.subheader("Acumulado histórico de desapariciones de Mujeres")
 
 fig_acum = px.line(
     temporal,
@@ -118,7 +56,121 @@ fig_acum.update_layout(
     yaxis_title="Total acumulado"
 )
 
+# ========================
+# LÍNEAS 
+# ========================
+lineas = [
+    (2016, "2016 Firma de los acuerdos de paz"),
+]
+
+for x, label in lineas:
+    fig_acum.add_vline(
+        x=x,
+        line_width=2,
+        line_dash="dash",
+        line_color="gray",
+        annotation_text=label,
+        annotation_position="top"
+    )
+
+
 st.plotly_chart(fig_acum, use_container_width=True)
+
+
+# ========================
+# GRÁFICA 2:  ANUAL
+# ========================
+st.markdown("### 📊 Registros anuales")
+
+st.subheader("Cantidad de desapareciones por año: Representación de la mujer frente al total de Personas Dadas por Desaparecidas")
+
+st.markdown("""
+<small style='color: gray;'>
+Interactúe con la gráfica desplazando el cursor sobre la curva para visualizar el detalle de la información.
+</small>
+""", unsafe_allow_html=True)
+
+fig_anual = px.line(
+    temporal,
+    x="anio_desapa",
+    y=["total_pdd", "total_mujeres"],
+    markers=True
+)
+
+# colores personalizados
+fig_anual.update_traces(
+    selector=dict(name="total_pdd"),
+    line=dict(color="#8e44ad", width=3),
+)
+
+fig_anual.update_traces(
+    selector=dict(name="total_mujeres"),
+    line=dict(color="darkblue", width=3),
+)
+
+# hover personalizado
+fig_anual.update_traces(
+    hovertemplate=
+    "<b>Año:</b> %{x}<br>" +
+    "<b>Total de PDD:</b> %{y:,}<extra></extra>"
+)
+
+fig_anual.update_layout(
+    height=450,
+    xaxis_title="Año",
+    yaxis_title="Número de casos",
+    legend_title="Serie"
+)
+
+# ========================
+# LÍNEAS 
+# ========================
+lineas = [
+    (2003, "         Periodo desmovilización paramilitares"),
+    (2006, "")
+]
+
+for x, label in lineas:
+    fig_anual.add_vline(
+        x=x,
+        line_width=2,
+        line_dash="dash",
+        line_color="gray",
+        annotation_text=label,
+        annotation_position="top"
+    )
+
+
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("**Total PDD vs Mujeres**")
+    st.plotly_chart(fig_anual, use_container_width=True)
+
+with col2:
+    fig_mujeres = px.line(
+        temporal,
+        x="anio_desapa",
+        y="total_mujeres",
+        markers=True
+    )
+
+    fig_mujeres.update_traces(
+        line=dict(color="darkblue", width=3)
+    )
+
+    fig_mujeres.update_layout(
+        height=350,
+        xaxis_title="Año",
+        yaxis_title="Casos"
+    )
+
+    st.markdown("**Mujeres por año**")
+    st.plotly_chart(fig_mujeres, use_container_width=True)
+
+
+
 
 
 ####### analisis 
