@@ -6,6 +6,10 @@ import numpy as np
 
 st.set_page_config(layout="wide")
 
+
+# LOGO EN SIDEBAR (arriba del menú)
+st.sidebar.image("assets/logo_umujer.png", use_container_width=True)
+
 # ========================
 # CARGAR DATOS
 # ========================
@@ -100,14 +104,14 @@ col1.markdown(f"""
 
 col2.markdown(f"""
 <div style='background-color:#ede7f6; padding:20px; border-radius:10px'>
-<h3>Mujeres</h3>
+<h3>Total Mujeres desaparecidas</h3>
 <h1>{int(universo['mujeres'][0]):,}</h1>
 </div>
 """, unsafe_allow_html=True)
 
 col3.markdown(f"""
 <div style='background-color:#e1bee7; padding:20px; border-radius:10px'>
-<h3>% Mujeres</h3>
+<h3>% Mujeres desaparecidas</h3>
 <h1>{universo['por_mujeres'][0]*100:.1f}%</h1>
 </div>
 """, unsafe_allow_html=True)
@@ -115,7 +119,7 @@ col3.markdown(f"""
 # KPI 4 
 col4.markdown(f"""
 <div style='background-color:#f8bbd0; padding:20px; border-radius:10px'>
-<h4>Tiempo promedio desaparición</h4>
+<h4>Tiempo promedio de desaparecidas</h4>
 <h2>{universo['tiempo_prom_mujeres'][0]:.1f} años</h2>
 </div>
 """, unsafe_allow_html=True)
@@ -123,7 +127,7 @@ col4.markdown(f"""
 # KPI 5 
 col5.markdown(f"""
 <div style='background-color:#f3e5f5; padding:20px; border-radius:10px'>
-<h4>Departamento con el mayor proporción mujeres desaparecidas</h4>
+<h4>Departamento con la mayor proporción de mujeres desaparecidas</h4>
 <h2>{universo['dep_mayor_prop'][0]}</h2>
 <p>{universo['prop_dep'][0]*100:.1f}%</p>
 </div>
@@ -132,8 +136,9 @@ col5.markdown(f"""
 # KPI 6 
 col6.markdown(f"""
 <div style='background-color:#ede7f6; padding:20px; border-radius:10px'>
-<h4>Mujeres encontradas</h4>
+<h4>Mujeres encontradas </h4>
 <h2>{int(universo['mujeres_encontradas'][0]):,}</h2>
+<h4> Entrega dignas 78 - Encontradas  con vida 113 </h4>
 </div>
 """, unsafe_allow_html=True)
 
@@ -296,7 +301,7 @@ fig_map_muni.update_geos(
 )
 
 fig_map_muni.update_layout(
-    height=600,
+    height=700,
     margin={"r":0,"t":50,"l":0,"b":0}
 )
 

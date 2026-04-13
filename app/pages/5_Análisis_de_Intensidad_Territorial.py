@@ -33,7 +33,7 @@ tasas["codigo_municipio"] = tasas["codigo_municipio"].astype(str)
 #  Titulo
 ######################
 
-st.title("🧬 Análisis de Intencidad Territorial que presentan la desaparicion de Mujeres")
+st.title("🧬 Análisis de Intensidad Territorial que presentan la desaparicion de Mujeres")
 st.markdown("""
 <small style='color: gray;'>
 - Las tasas permiten identificar territorios con mayor riesgo relativo.

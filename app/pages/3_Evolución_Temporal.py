@@ -18,7 +18,7 @@ temporal = temporal.sort_values("anio_desapa")
 # ========================
 # TÍTULO
 # ========================
-st.title("📈 Análisis de la evolución temporal de desaparicion de Mujeres")
+st.title("📈 Análisis de la evolución temporal de desaparición de Mujeres")
 
 st.markdown("""
 Patrones y momentos críticos: Análisis temporal de las desapariciones de mujeres en el marco del conflicto armado en Colombia.
@@ -82,7 +82,7 @@ st.plotly_chart(fig_acum, use_container_width=True)
 # ========================
 st.markdown("### 📊 Registros anuales")
 
-st.subheader("Cantidad de desapareciones por año: Representación de la mujer frente al total de Personas Dadas por Desaparecidas")
+st.subheader("Cantidad de desapariciones por año: Representación de la mujer frente al total de Personas Dadas por Desaparecidas")
 
 st.markdown("""
 <small style='color: gray;'>
@@ -163,7 +163,7 @@ with col2:
     fig_mujeres.update_layout(
         height=350,
         xaxis_title="Año",
-        yaxis_title="Casos"
+        yaxis_title="Número de Casos"
     )
 
     st.markdown("**Mujeres por año**")
@@ -243,7 +243,7 @@ fig.update_traces(
 
 fig.update_layout(
     title=f"Estructura del tiempo de desaparición ({tipo})",
-    xaxis_title="Años desde la desaparición",
+    xaxis_title="Años desaparecidas",
     yaxis_title="Porcentaje (%)",
     height=500,
     yaxis=dict(showgrid=False)  # más limpio
