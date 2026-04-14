@@ -165,18 +165,15 @@ Interactúe con el mapa desplazando el cursor sobre los departamentos para visua
 # ========================
 st.subheader(" Distribución territorial de las desapariciones, por departamento y municipio de la declaración de desaparición")
 
-tope_escala = territorio["total"].quantile(0.9)
+st.markdown("""
+<style>
+div[data-testid="stPlotlyChart"] {
+    height: 90vh !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <style>
-    .stPlotlyChart {
-        height: 90vh !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+tope_escala = territorio["total"].quantile(0.9)
 
 fig_map = px.choropleth(
     territorio,
@@ -212,7 +209,7 @@ fig_map.update_geos(
 )
 
 fig_map.update_layout(
-    height=900,
+    # height=900,
     margin={"r":0,"t":20,"l":0,"b":0}
 )
 
@@ -312,7 +309,7 @@ fig_map_muni.update_geos(
 )
 
 fig_map_muni.update_layout(
-    height=900,
+    # height=900,
     margin={"r":0,"t":20,"l":0,"b":0}
 )
 
