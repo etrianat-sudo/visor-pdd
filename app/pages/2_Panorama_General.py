@@ -201,8 +201,8 @@ fig_map.update_geos(
 )
 
 fig_map.update_layout(
-    height=600,
-    margin={"r":0,"t":50,"l":0,"b":0}
+    height=900,
+    margin={"r":0,"t":20,"l":0,"b":0}
 )
 
 
@@ -301,8 +301,8 @@ fig_map_muni.update_geos(
 )
 
 fig_map_muni.update_layout(
-    height=700,
-    margin={"r":0,"t":50,"l":0,"b":0}
+    height=900,
+    margin={"r":0,"t":20,"l":0,"b":0}
 )
 
 col1, col2 = st.columns(2)
