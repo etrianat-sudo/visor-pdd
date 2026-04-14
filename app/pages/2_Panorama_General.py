@@ -167,6 +167,17 @@ st.subheader(" Distribución territorial de las desapariciones, por departamento
 
 tope_escala = territorio["total"].quantile(0.9)
 
+st.markdown(
+    """
+    <style>
+    .stPlotlyChart {
+        height: 90vh !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 fig_map = px.choropleth(
     territorio,
     geojson=geojson,
